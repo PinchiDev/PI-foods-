@@ -1,9 +1,9 @@
 const getRecipeApi = require("./getRecipeAPI");
-const getRecipesDB = require("./getRecipeDB");
+const getRecipesToDB = require("./getRecipesToDB");
 
 const getAll = async () => {
 const apiInfo = await getRecipeApi();
-const dbInfo = await getRecipesDB();
+const dbInfo = await getRecipesToDB();
 const totalInfo = apiInfo.concat(dbInfo);
 return totalInfo;
 };

@@ -2,12 +2,12 @@ const Recipes = require("../../db");
 const { Op } = require("sequelize");
 const recipesToBb = require("./recipeToDB");
 
- const getRByName = async (name) => {
+ const getRByName = async (title) => {
   try {
     recipesToBb();
     let info = await Recipes.findAll({
       where: {
-        name: {[Op.iLike]: `%${name}%`}
+        title: {[Op.iLike]: `%${title}%`}
       }
     })
     return info;

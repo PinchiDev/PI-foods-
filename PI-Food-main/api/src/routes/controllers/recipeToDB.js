@@ -4,7 +4,7 @@ const {Recipes, Diet} = require("../../db");
 
 const recipeToDB = async ()=> {
     try {
-        const recipeToDB = await Recipes.findOrCreate(
+        const recipeToDB = await Recipes.findAll(
         {
             include: {model: Diet} 
         });
@@ -12,7 +12,7 @@ const recipeToDB = async ()=> {
             const recipesApi = await getRecipeApi();
             await Recipes.bulkCreate(recipesApi);
         }
-        return recipeToDB;
+//        return recipeToDB;
     } catch (error) {
         console.log(error);
     }
