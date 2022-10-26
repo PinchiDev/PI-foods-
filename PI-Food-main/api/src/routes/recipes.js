@@ -2,47 +2,29 @@ const { Router } = require("express");
 require("dotenv").config();
 const router = Router();
 const getAll = require("./controllers/getAll");
-const getRById = require("./controllers/getRById");
+//const getRById = require("./controllers/getRById");
 const {Recipes, Diet} = require("../db");
 const {Op} = require("sequelize");
+// const getRecipeApi = require("./controllers/getRecipeAPI");
+ const recipeToDB = require("./controllers/recipeToDB");
 
 
 const getRByName = async (title) => {
   try {
-    await getAll();
-    let info = await Recipes.findAll({
-      attributes: ["title"],
-      where: {
-        title: {[Op.iLike]: `%${title}%`}
-      },
-      include: {
-        model: Diet,
-        attributes: ["name"],
-        through: {
-          attributes: []
-        }
-      }
-    })
+    const infoAll = await getAll();
+    const tituloFiltrado = infoAll.filter(n => n.title.toLowerCase().includes(title));
+    return tituloFiltrado;
+  } catch (error) {
+    console.log(error)
+  }
+ };
+ 
 
-
-    const recipes = info.map(receta => ({
-      id: receta.id,
-      title: receta.title,
-      image: receta.image,
-      healthScore: receta.healthScore,
-      // steps: receta.analyzedInstructions[0]?.steps.map((a)=>{
-      //   return {
-      //     number: a.number,
-      //     step: a.step
-      //   }
-      // }),
-      summary: receta.summary,
-  
-  }))
-
-  return recipes;
-
-
+ const getRById = async (id) => {
+  try {
+    const infoAll = await getAll();
+    const tituloFiltrado = infoAll.filter(n => n.id.includes(id));
+    return tituloFiltrado;
   } catch (error) {
     console.log(error)
   }
@@ -51,32 +33,40 @@ const getRByName = async (title) => {
 
 
 ////////////////////////////////////////////////////////////////
+//si no hay una query traeme todo, si hay guardame todo en la DB y buscalo desde ahi para devolverlo.
 router.get("/recipes", async (req,res) => {
-  const { title } = req.query;
-    
-  try {
-    if(!title){
-      const apiInfo = await getAll();
-      return res.status(200).send(apiInfo);  
-        
-  } else{
-    const filteredNames = await getRByName(title);
-    res.status(200).send(filteredNames);
-  }
-  }catch (error) {
-    return res.status(404).send("No recipe found");
-  }
-});
+
+  const {title} = req.query;
+  
+  if(title){
+      const receta = title.toLowerCase();
+      const recetaAPI = await getRByName(receta);
+
+      if(!recetaAPI) {
+        return res.status(200).send("Bad Query")
+      } else {
+        return res.status(200).send(recetaAPI)
+      }
+} else  {
+    const allInfo = await getAll();
+    return res.status(200).send(allInfo)
+  }});
 
 ////////////////////////////////////////////////////////////////
 router.get("/recipes/:id", async (req,res) => {
   const { id } = req.params;
   try {
     if(id){
-      const idRecipe = await getRById();
-      return res.status(200).send(idRecipe);
-    }
- 
+      const recetaAPI = await getRById(id);
+//      console.log(recetaAPI);
+      if(!recetaAPI) {
+        return res.status(200).send("Bad Query")
+      } else {
+        return res.status(200).send(recetaAPI)
+      }
+} else  {
+    return res.status(400).send("Wrong ID")
+  }
   } catch (error) {
     console.log(error.message);
     return res.status(404).send("No recipe found");

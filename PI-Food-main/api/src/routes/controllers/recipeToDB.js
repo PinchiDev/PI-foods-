@@ -1,7 +1,7 @@
 const {getRecipeApi} = require("./getRecipeAPI");
 const {Recipes, Diet} = require("../../db");
 
-
+//busco en el base de datos y si no hay nada voy a la api y hago un create en la DB;
 const recipeToDB = async ()=> {
     try {
         const recipeToDB = await Recipes.findAll(
@@ -12,7 +12,8 @@ const recipeToDB = async ()=> {
             const recipesApi = await getRecipeApi();
             await Recipes.bulkCreate(recipesApi);
         }
-//        return recipeToDB;
+//        else {return recipeToDB;};
+
     } catch (error) {
         console.log(error);
     }

@@ -4,7 +4,7 @@ const recipesToBb = require("./recipeToDB");
 
  const getRByName = async (title) => {
   try {
-    recipesToBb();
+    await recipesToBb();
     let info = await Recipes.findAll({
       where: {
         title: {[Op.iLike]: `%${title}%`}

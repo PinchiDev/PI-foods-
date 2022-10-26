@@ -1,6 +1,6 @@
 const {Recipes, Diet} = require("../../db")
 
-const getRecipesToDB = async () => {
+const getRecipesDB = async () => {
     try {
       let recipesDb = await Recipes.findAll({
         include: { model: Diet },
@@ -11,4 +11,4 @@ const getRecipesToDB = async () => {
     }
   };
 
-module.exports = getRecipesToDB;
+module.exports = getRecipesDB;
