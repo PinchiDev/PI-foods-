@@ -2,11 +2,7 @@ const { Router } = require("express");
 require("dotenv").config();
 const router = Router();
 const getAll = require("./controllers/getAll");
-//const getRById = require("./controllers/getRById");
 const {Recipes, Diet} = require("../db");
-const {Op} = require("sequelize");
-// const getRecipeApi = require("./controllers/getRecipeAPI");
- const recipeToDB = require("./controllers/recipeToDB");
 
 
 const getRByName = async (title) => {
@@ -22,9 +18,9 @@ const getRByName = async (title) => {
 
  const getRById = async (id) => {
   try {
-    const infoAll = await getAll();
-    const tituloFiltrado = infoAll.filter(n => n.id.includes(id));
-    return tituloFiltrado;
+    const infoAllId = await getAll();
+    const IdFiltrado = infoAllId.filter(n => n.id.includes(id));
+    return IdFiltrado;
   } catch (error) {
     console.log(error)
   }
@@ -57,12 +53,12 @@ router.get("/recipes/:id", async (req,res) => {
   const { id } = req.params;
   try {
     if(id){
-      const recetaAPI = await getRById(id);
+      const recipeFiltered = await getRById(id);
 //      console.log(recetaAPI);
-      if(!recetaAPI) {
+      if(!recipeFiltered) {
         return res.status(200).send("Bad Query")
       } else {
-        return res.status(200).send(recetaAPI)
+        return res.status(200).send(recipeFiltered)
       }
 } else  {
     return res.status(400).send("Wrong ID")
