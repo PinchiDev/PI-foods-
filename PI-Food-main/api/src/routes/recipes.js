@@ -19,7 +19,7 @@ const getRByName = async (title) => {
  const getRById = async (id) => {
   try {
     const infoAllId = await getAll();
-    const IdFiltrado = infoAllId.filter(n => n.id.includes(id));
+    const IdFiltrado = infoAllId.filter((n) => n.id == id);
     return IdFiltrado;
   } catch (error) {
     console.log(error)
