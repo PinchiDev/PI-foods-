@@ -10,7 +10,7 @@ function rootReducer (state=initialState, action) {
                         recipes: action.payload
                     }
                 default:
-                    return {...state};
+                    return state;
             }
 };
 
