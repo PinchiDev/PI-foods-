@@ -12,13 +12,6 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: UUIDV4,
       primaryKey: true
-      // --------------
-      // type: DataTypes.UUID,
-      // 
-      // primaryKey: true,
-      // allowNull: false
-      // ----------------
-     
     },
     summary: {
       type: DataTypes.TEXT,
@@ -39,6 +32,11 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       defaultValue: "There is no image"
+    },
+    createdNew:{
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
     }
   });
 };

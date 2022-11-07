@@ -5,34 +5,22 @@ require("sequelize");
 
 
 const dietsRest = [
-    {name:"Lacto Vegetarian"},
-    {name:"Ovo Vegetarian"},
-    {name:"Paleo"},
-    {name:"Pescetarian"},
-    {name:"Primal"},
-    {name:"Vegan"},
-    {name:"Vegetarian"},
-    {name:"Low FODMAP"},
-    {name:"Ketogenic"},
-    {name:"Whole 30"},
-    {name:"Gluten Free"},
-    {name:"Fruitarian"}
+    {name:"dairy free"},
+    {name:"frutarian"},
+    {name:"lacto ovo vegetarian"},
+    {name:"gluten free"},
+    {name:"ketogenic"},
+    {name:"lacto Vegetarian"},
+    {name:"low FODMAP"},
+    {name:"ovo Vegetarian"},
+    {name:"paleolithic"},
+    {name:"pescetarian"},
+    {name:"primal"},
+    {name:"vegan"},
+    {name:"vegetarian"},
+    {name:"whole 30"}
 ];
-// const dietsRest = {  
-//     Lacto Vegetarian,
-//     Ovo Vegetarian,
-//     Paleo,
-//     Pescetarian,
-//     Primal,
-//     Vegan,
-//     Vegetarian,
-//     Low FODMAP,
-//     Ketogenic,
-//     Whole 30,
-//     Gluten Free,
-//     Fruitarian
-// }
-// ;
+
 
  const dietToDB = async ()=>{
 //console.log(Diet);
