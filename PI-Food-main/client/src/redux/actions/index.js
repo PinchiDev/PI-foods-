@@ -32,6 +32,13 @@ export function alphabeticOrder (payload){
     }
 };
 
+export function orderByHealthScore (payload){
+    return {
+        type: "ORDER_BY_HEALTHSCORE",
+        payload: payload
+    }
+};
+
 export function getByName (payload){
     return async function(dispatch){
         try {

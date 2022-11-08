@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { getRecipes, filterByDiet, filterByOrigin, alphabeticOrder } from "../redux/actions";
+import { getRecipes, filterByDiet, filterByOrigin, alphabeticOrder, orderByHealthScore } from "../redux/actions";
 import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import Paginado from "./Paginado";
@@ -15,7 +15,7 @@ import SearchBar from "./SearchBar";
 export default function Home (){
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.recipesToRender);
-    const [order, setOrder] = useState("");
+    const [order, setOrder] = useState("");//this state is setting the order of the render cards
     const [currentPage,setCurrentPage] = useState(1);
     const [recipesPerPage,setRecipesPerPage] = useState(9);
     const lastRecipe = currentPage * recipesPerPage;
@@ -50,7 +50,13 @@ export default function Home (){
         dispatch(alphabeticOrder(e.target.value));
         setCurrentPage(1);
         setOrder(`Ordenado ${e.target.value}`)
+    }
 
+    function handleOrderByHealthScore (e){
+        e.preventDefault();
+        dispatch(orderByHealthScore(e.target.value));
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`)
     }
 
     return (
@@ -70,8 +76,9 @@ export default function Home (){
                     <option value="desc">From Z to A</option>
                 </select>
 
-                <select>
-                    <option value="AllN">Health Scores</option>
+                <select onChange={e=> handleOrderByHealthScore(e)}>
+                    <option value="min">HealthScore min-max</option>
+                    <option value="max">HealthScore min-max</option>
                 </select>
 
                 <select onChange={e=> handleFilterBD(e)}>
@@ -108,9 +115,10 @@ export default function Home (){
                         return (
                             <div key={r.id}>
                                 <Link to={"/recipes/" + r.id}>
-                                    <RecipeCard title={r.title} healthScore={r.healthScore} image={r.image} />
+                                    <RecipeCard title={r.title} healthScore={r.healthScore} image={r.image} diets={r.diets.join(" ,")} />
                                 </Link>
                             </div>
+                            //cuando hago click en la recipe me manda a la ruta de id params pero se renderiza el create recipe cuando deberia llevarme al componente Recipedetail
                         )
                     })
                 }

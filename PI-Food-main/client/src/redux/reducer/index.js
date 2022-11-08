@@ -27,37 +27,39 @@ function rootReducer (state=initialState, action) {
                         ...state,
                         recipesToRender: filterByOrigin
                     }
-                // case "FILTER_BY_HEALTHSCORE":
-                //     const filterByHealthScore = 
-                //     //aca deberia buscar tengo que revisar como hace que cada receta creada tenga el flag y me falta hacer que traiga creadas y online juntas
-                //     return {
-                //         ...state,
-                //         recipesToRender: filterByHealthScore
-                //     }
+                case "ORDER_BY_HEALTHSCORE":
+                    let scoresSorted = action.payload === "min" ?
+                    state.recipesToRender.sort(function (a,b){ return a.healthScore - b.healthScore})
+                    :
+                    state.recipesToRender.sort(function (a,b){ return b.healthScore - a.healthScore})
+                    return {
+                        ...state,
+                        recipesToRender: scoresSorted
+                    }
                 case "ALPHABETIC_ORDER":
-                        let sorted = action.payload === "asc" ?
-                        state.recipesToRender.sort(function (a,b){
-                            if (a.title > b.title){
-                                return 1;
-                            }
-                            if (a.title < b.title){
-                                return -1;
-                            }
-                            return 0;
-                        }) :
-                        state.recipesToRender.sort(function (a,b){
-                            if (a.title > b.title){
-                                return -1;
-                            }
-                            if (b.title < a.title){
-                                return 1;
-                            }
-                            return 0;
-                        })
-                        return {
-                            ...state,
-                            recipesToRender: sorted
+                    let sorted = action.payload === "asc" ?
+                    state.recipesToRender.sort(function (a,b){
+                        if (a.title > b.title){
+                            return 1;
                         }
+                        if (a.title < b.title){
+                            return -1;
+                        }
+                        return 0;
+                    }) :
+                    state.recipesToRender.sort(function (a,b){
+                        if (a.title > b.title){
+                            return -1;
+                        }
+                        if (a.title < b.title){
+                            return 1;
+                        }
+                        return 0;
+                    })
+                    return {
+                        ...state,
+                        recipesToRender: sorted
+                    }
                 case "GET_BY_NAME":
 
                         return {
