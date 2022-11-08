@@ -57,8 +57,6 @@ export default function Home (){
         <div>
             <Link to="/recipes">Create Recipe</Link>
 
-            <button onClick={e => {handleClick(e)}}>Refresh Recipes</button>
-
             <div>
 
             <select onChange={e=> handleFilterByOrigin(e)}>
@@ -95,6 +93,8 @@ export default function Home (){
                 </select>
 
                 <SearchBar/>
+
+                <button onClick={e => {handleClick(e)}}>Refresh Recipes</button>
 
                 <Paginado 
                 recipesPerPage={recipesPerPage}

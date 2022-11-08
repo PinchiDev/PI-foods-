@@ -12,7 +12,7 @@ export default function RecipeCreate(){
         summary:"",
         healthScore:"",
         steps:[],
-        diets:[]
+        diets:new Set()
     });
 
 
@@ -27,20 +27,34 @@ export default function RecipeCreate(){
         if (e.target.checked){
             setInput({
                 ...input,
-                diets: input.diets.push(e.target.value)
+                diets: input.diets.add(e.target.value)
             })
-            console.log(input.diets)
-            
-            //TENGO QUE VER COMO IR GUARDANDO EN EL INPUT.DIETS LAS DIETAS QUE SELECCIONO EN UN ARRAY PARA EL POST
-            //podria hacer otro estado que vaya cargando en un objeto lo que se checkea para ahi guardarlo en el diets del create
+        } if (!e.target.checked){
+            input.diets.delete(e.target.value)
+            setInput({
+                ...input,
+            })
         }
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        dispatch(postRecipe(input));
+        alert("Recipe Created Succesfully");
+        setInput({
+        title:"",
+        summary:"",
+        healthScore:"",
+        steps:[],
+        diets:new Set()
+        });
     }
 
 
     useEffect(()=>{
         dispatch(getDiets())
     },[])
-//me falta cargar en el estado diets las dietas que me traigo de la base de datos
+
 
     return (
         <div>
@@ -48,7 +62,7 @@ export default function RecipeCreate(){
             <h1>Here you can create your own recipes!</h1>
             <h3>Fill the form and submit it to create a new recipe that will be saved to your data base</h3>
             
-            <form>
+            <form onSubmit={(e)=>handleSubmit(e)}>
 
                 <div>
                     <label>Title:</label>
@@ -92,47 +106,3 @@ export default function RecipeCreate(){
     )
 
 }
-
-
-{/* <label>
-<input type="checkbox" value="dairy free" name="dairy free"/>dairy free
-</label>
-<label>
-<input type="checkbox" value="frutarian" name="frutarian"/>frutarian
-</label>
-<label>
-<input type="checkbox" value="lacto ovo vegetarian" name="lacto ovo vegetarian"/>lacto ovo vegetarian
-</label>
-<label>
-<input type="checkbox" value="gluten free" name="gluten free"/>gluten free
-</label>
-<label>
-<input type="checkbox" value="ketogenic" name="ketogenic"/>ketogenic
-</label>
-<label>
-<input type="checkbox" value="lacto Vegetarian" name="lacto Vegetarian"/>lacto Vegetarian
-</label>
-<label>
-<input type="checkbox" value="low FODMAP" name="low FODMAP"/>low FODMAP
-</label>
-<label>
-<input type="checkbox" value="ovo Vegetarian" name="ovo Vegetarian"/>ovo Vegetarian
-</label>
-<label>
-<input type="checkbox" value="paleolithic" name="paleolithic"/>paleolithic
-</label>
-<label>
-<input type="checkbox" value="pescetarian" name="pescetarian"/>pescetarian
-</label>
-<label>
-<input type="checkbox" value="primal" name="primal"/>primal
-</label>
-<label>
-<input type="checkbox" value="vegan" name="vegan"/>vegan
-</label>
-<label>
-<input type="checkbox" value="vegetarian" name="vegetarian"/>vegetarian
-</label>
-<label>
-<input type="checkbox" value="whole 30" name="whole 30"/>whole 30
-</label> */}

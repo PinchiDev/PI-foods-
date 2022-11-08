@@ -27,13 +27,20 @@ function rootReducer (state=initialState, action) {
                         ...state,
                         recipesToRender: filterByOrigin
                     }
+                // case "FILTER_BY_HEALTHSCORE":
+                //     const filterByHealthScore = 
+                //     //aca deberia buscar tengo que revisar como hace que cada receta creada tenga el flag y me falta hacer que traiga creadas y online juntas
+                //     return {
+                //         ...state,
+                //         recipesToRender: filterByHealthScore
+                //     }
                 case "ALPHABETIC_ORDER":
                         let sorted = action.payload === "asc" ?
                         state.recipesToRender.sort(function (a,b){
                             if (a.title > b.title){
                                 return 1;
                             }
-                            if (b.title < a.title){
+                            if (a.title < b.title){
                                 return -1;
                             }
                             return 0;
