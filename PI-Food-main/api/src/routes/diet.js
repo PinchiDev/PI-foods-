@@ -23,14 +23,14 @@ const dietsRest = [
 
 
  const dietToDB = async ()=>{
-//console.log(Diet);
     const dietsInDb = await Diet.findAll();
-//console.log(dietsInDb);
     if(dietsInDb.length) {
     return dietsInDb;
     } else {
     const createDiets = await Diet.bulkCreate(dietsRest);
+    
     return createDiets;
+
     }
  }
 
@@ -46,4 +46,4 @@ try {
 });
 
 
-module.exports = router;
+module.exports = {router, dietToDB};

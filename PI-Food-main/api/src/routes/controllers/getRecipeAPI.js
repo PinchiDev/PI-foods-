@@ -12,6 +12,7 @@ const getRecipeApi = async function () {
             summary: e.summary,
             healthScore: e.healthScore,
             image: e.image,
+            dishTypes: e.dishTypes,
             diets:e.diets,
             steps: e.analyzedInstructions[0]?.steps.map((s)=>{
                 return {

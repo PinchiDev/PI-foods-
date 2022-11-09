@@ -20,12 +20,11 @@
 const server = require('./src/app.js');
 const { conn, Recipes, Diet } = require('./src/db.js');
 const fs = require("fs");
+const {dietToDB} = require("./src/routes/diet");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+  dietToDB().then(() => server.listen(3001, () => {console.log('%s listening at 3001');}))
   // fs.readFile("foodAPI.json", (error, data) => {
   //   if(error) throw error;
   //   let dietsSet = new Set();

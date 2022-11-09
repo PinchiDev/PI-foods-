@@ -3,6 +3,7 @@ require("dotenv").config();
 const router = Router();
 const getAll = require("./controllers/getAll");
 const {Recipes, Diet} = require("../db");
+const { Op } = require("sequelize");
 
 
 const getRByName = async (title) => {
@@ -73,7 +74,13 @@ router.get("/recipes/:id", async (req,res) => {
 router.post("/recipes", async (req,res) => {
   const { title, summary, healthScore, image, steps, diets} = req.body;
 try {
-  if(!title || !summary || !healthScore || !image || !steps){
+  let dietsDb = await Diet.findAll({
+    where:
+    { name: { [Op.in]: diets } }
+  })
+  console.log(dietsDb)
+    
+  if(title || summary || healthScore || image || steps){
 
     const recipePost = await Recipes.create({
       
@@ -84,7 +91,6 @@ try {
       diets
       
     })
-    let dietsDb = await Diet.findAll({ attributes: ["name"] })
     recipePost.addDiet(dietsDb);
   
     return res.status(200).send( recipePost);
