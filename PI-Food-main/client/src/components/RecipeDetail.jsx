@@ -16,8 +16,7 @@ export default function RecipeDetail (props){
     },[dispatch])
 
     const detailRecipe = useSelector((state)=> state.detail[0]);
-
-
+    //comprobar con un if si tiene algo detailrecipe
     return (
         <div>
             {
@@ -25,12 +24,18 @@ export default function RecipeDetail (props){
                 <div>
                     <h1>Recipe Details</h1>
                     <h1>Recipe Title: {detailRecipe.title}</h1>
-                    <h2>Dish Types: {detailRecipe.dishTypes.join(", ")}</h2>
+                    <img src={detailRecipe.image} alt="not found"/>
+                    <h2>Dish Types: {detailRecipe.dishTypes?.join(", ")}</h2>
                     <h2>Diet Types: {detailRecipe.diets.join(", ")}</h2>
                     <h2>Health Score: {detailRecipe.healthScore}</h2>
-                    <div dangerouslySetInnerHTML={{__html:detailRecipe.summary}}></div>
-                    <div>Steps: {JSON.stringify(detailRecipe.steps)}</div>
-                    </div>:
+                    <div>
+                        <h2>Summary: </h2>
+                        <div dangerouslySetInnerHTML={{__html:detailRecipe.summary}}></div>
+                    </div>
+                    <ol>
+                        {detailRecipe.steps.map((step) => <li key={step.number}>{step.step}</li>)}
+                    </ol>
+                </div>:
                     <p>Loading...</p>
             }
             <Link to='/home'><button>Go back to Home</button> </Link>

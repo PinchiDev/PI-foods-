@@ -567,3 +567,81 @@ const results = {
     "number": 5,
     "totalResults": 5224
     }
+    //STEPS EXAMPLE
+    // "steps": [{
+    //     "number": 1,
+    //     "step": "Take some yogurt in your favorite flavor and add 1 container to your blender.",
+    //     "ingredients": [{
+    //     "id": 1116,
+    //     "name": "yogurt",
+    //     "localizedName": "yogurt",
+    //     "image": "plain-yogurt.jpg"}],
+    //     "equipment": [{
+    //     "id": 404726,
+    //     "name": "blender",
+    //     "localizedName": "blender",
+    //     "image": "blender.png"}]},
+
+    //     {"number": 2,
+    //     "step": "Add in the berries, banana, and soy milk and blend. Top your glass with a few graham cracker crumbs and serve.",
+    //     "ingredients": [{
+    //     "id": 10018617,
+    //     "name": "graham cracker crumbs",
+    //     "localizedName": "graham cracker crumbs",
+    //     "image": "graham-crackers.jpg"
+    //     },
+    //     {
+    //     "id": 16223,
+    //     "name": "soymilk",
+    //     "localizedName": "soymilk",
+    //     "image": "soy-milk.jpg"
+    //     },
+    //     {
+    //     "id": 1009054,
+    //     "name": "berries",
+    //     "localizedName": "berries",
+    //     "image": "berries-mixed.jpg"
+    //     },
+    //     {
+    //     "id": 9040,
+    //     "name": "banana",
+    //     "localizedName": "banana",
+    //     "image": "bananas.jpg"}],
+    //     "equipment": []
+    //     }
+    //     ]
+
+
+    //next example of steps steps: [{ n...,s...,i...:[{}],e...[{}] } , { n...,s...,i...:[{}],e...[{}] }]
+    // "steps": [{"number": 1, "step": "Heat the olive oil in a large pot over medium heat.", "ingredients": [{"id": 4053,"name": "olive oil","localizedName": "olive oil","image": "olive-oil.jpg"}],
+    //     "equipment": [{"id": 404752,"name": "pot","localizedName": "pot","image": "stock-pot.jpg"}]},
+
+    //     {"number": 2,"step": "Add the kale and cover.Stir occasionally until the volume of the kale is reduced by half. Uncover.","ingredients": [{ "id": 11233,"name": "kale","localizedName": "kale","image": "kale.jpg"}],"equipment": [] },
+
+
+    //     {
+    //     "number": 3,
+    //     "step": "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed.",
+    //     "ingredients": [
+    //     {
+    //     "id": 2053,
+    //     "name": "vinegar",
+    //     "localizedName": "vinegar",
+    //     "image": "vinegar-(white).jpg"
+    //     },
+    //     {
+    //     "id": 11215,
+    //     "name": "garlic",
+    //     "localizedName": "garlic",
+    //     "image": "garlic.png"
+    //     }
+    //     ],
+    //     "equipment": []
+    //     },
+    //     {
+    //     "number": 4,
+    //     "step": "Serve hot.",
+    //     "ingredients": [],
+    //     "equipment": []
+    //     }
+    //     ]

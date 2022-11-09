@@ -22,8 +22,8 @@ function rootReducer (state=initialState, action) {
                         recipesToRender: filterByDiet
                     }
                 case "FILTER_BY_ORIGIN":
-                    const filterByOrigin = action.payload === "Online" ? state.allRecipes : state.allRecipes.filter(el => el.created)//aca deberia ser sobre todas creadas y online
-                    //aca deberia buscar tengo que revisar como hace que cada receta creada tenga el flag y me falta hacer que traiga creadas y online juntas
+                    const filterByOrigin = action.payload === "Online" ? state.allRecipes : state.allRecipes.filter(el => el.created)
+                    
                     return {
                         ...state,
                         recipesToRender: filterByOrigin
