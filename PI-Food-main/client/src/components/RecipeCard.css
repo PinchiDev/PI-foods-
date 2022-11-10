@@ -1,0 +1,16 @@
+
+@font-face {
+    font-family: "cooking-water";
+    src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
+}
+
+
+.card {
+    height: 20%;
+    width: 20%;
+    background-color: aqua;
+    padding: 5%;
+    /* font-family: cooking-water;
+    font-size: 2rem; */
+}
+
