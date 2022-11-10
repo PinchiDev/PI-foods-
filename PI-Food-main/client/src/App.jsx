@@ -8,15 +8,28 @@ import RecipeDetail from './components/RecipeDetail';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-      <Route exact path='/' component={LandingPage} />
-      <Route path='/home' component={Home} />
-      <Route path='/recipes/:id' component={RecipeDetail} />
-      <Route path='/recipes' component={RecipeCreate} />
+    <div className='containerAll'>
 
-      </Switch>
-    </BrowserRouter>
+        <div className='browserRouter'>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/home" component={Home} />
+            <Route path="/recipes/:id" component={RecipeDetail} />
+            <Route path="/recipes" component={RecipeCreate} />
+          </Switch>
+        </BrowserRouter>
+        </div>
+
+        <div className="footerContainer">
+
+          <div className="footer">
+            Study full stack web development for free untill you find a job in
+            <a href="www.soyhenry.com">soyhenry.com</a>
+          </div>
+
+        </div>
+    </div>
   );
 }
 

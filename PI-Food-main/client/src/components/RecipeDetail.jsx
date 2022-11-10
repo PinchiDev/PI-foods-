@@ -30,7 +30,7 @@ export default function RecipeDetail (props){
                     <h2>Health Score: {detailRecipe.healthScore}</h2>
                     <div>
                         <h2>Summary: </h2>
-                        <div dangerouslySetInnerHTML={{__html:detailRecipe.summary}}></div>
+                        <div dangerouslySetInnerHTML={{__html:detailRecipe.summary}}></div>         
                     </div>
                     <ol>
                         {detailRecipe.steps.map((step) => <li key={step.number}>{step.step}</li>)}

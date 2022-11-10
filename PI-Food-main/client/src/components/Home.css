@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "cooking-water";
+    src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
+}
+
+.henryRecipes {
+    font-family: cooking-water;
+    font-size: 5rem;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filterContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+

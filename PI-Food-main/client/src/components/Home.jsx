@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import './Home.css';
 
 
 
@@ -60,69 +61,99 @@ export default function Home (){
     }
 
     return (
-        <div>
+      <div>
+        <div className="headerContainer">
+          <div>
+            <h1 className="henryRecipes">Henry Recipes</h1>
+          </div>
+
+          <div>
+            <button
+              onClick={(e) => {
+                handleClick(e);
+              }}
+            >
+              Refresh Recipes
+            </button>
+          </div>
+
+          <div>
             <Link to="/recipes">Create Recipe</Link>
+          </div>
 
-            <div>
-
-            <select onChange={e=> handleFilterByOrigin(e)}>
-                    <option value="AllC&O">Own Recipe / Online Recipe</option>
-                    <option value="Created">Mi Own Recipes</option>
-                    <option value="Online">OnLine Recipes</option>
-                </select>
-
-                <select onChange={e=> handleOrder(e)}>
-                    <option value="asc">From A to Z</option>
-                    <option value="desc">From Z to A</option>
-                </select>
-
-                <select onChange={e=> handleOrderByHealthScore(e)}>
-                    <option value="min">HealthScore min-max</option>
-                    <option value="max">HealthScore min-max</option>
-                </select>
-
-                <select onChange={e=> handleFilterBD(e)}>
-                    <option value="AllDT">Diet Types</option>
-                    <option value="dairy free">Dairy Free</option>
-                    <option value="frutarian">Frutarian</option>
-                    <option value="lacto ovo vegetarian">Lacto Ovo Vegetarian</option>
-                    <option value="gluten free">Gluten Free</option>
-                    <option value="ketogenic">Ketogenic</option>
-                    <option value="lacto Vegetarian">Lacto Vegetarian</option>
-                    <option value="low FODMAP">Low FODMAP</option>
-                    <option value="ovo Vegetarian">Ovo Vegetarian</option>
-                    <option value="paleolithic">Paleolithic</option>
-                    <option value="pescetarian">Pescetarian</option>
-                    <option value="primal">Primal</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="whole 30">Whole 30</option>
-                </select>
-
-                <SearchBar/>
-
-                <button onClick={e => {handleClick(e)}}>Refresh Recipes</button>
-
-                <Paginado 
-                recipesPerPage={recipesPerPage}
-                allRecipes={allRecipes.length}
-                paginado={paginado}
-                />
-
-
-                {
-                    currentRecipes?.map(r =>{
-                        return (
-                            <div key={r.id}>
-                                <Link to={"/recipes/" + r.id}>
-                                    <RecipeCard title={r.title} healthScore={r.healthScore} image={r.image} diets={r.diets.join(" ,")} />
-                                </Link>
-                            </div>
-                            //cuando hago click en la recipe me manda a la ruta de id params pero se renderiza el create recipe cuando deberia llevarme al componente Recipedetail
-                        )
-                    })
-                }
-            </div>
+          <div>
+            <SearchBar />
+          </div>
         </div>
-    )
+
+        <div>
+          <div className="filterContainer">
+            <div>
+              <h3>Filter By: </h3>
+            </div>
+
+            <select onChange={(e) => handleOrder(e)}>
+              <option value="asc">From A to Z</option>
+              <option value="desc">From Z to A</option>
+            </select>
+
+            <select onChange={(e) => handleFilterBD(e)}>
+              <option value="AllDT">Diet Types</option>
+              <option value="dairy free">Dairy Free</option>
+              <option value="frutarian">Frutarian</option>
+              <option value="lacto ovo vegetarian">Lacto Ovo Vegetarian</option>
+              <option value="gluten free">Gluten Free</option>
+              <option value="ketogenic">Ketogenic</option>
+              <option value="lacto Vegetarian">Lacto Vegetarian</option>
+              <option value="low FODMAP">Low FODMAP</option>
+              <option value="ovo Vegetarian">Ovo Vegetarian</option>
+              <option value="paleolithic">Paleolithic</option>
+              <option value="pescetarian">Pescetarian</option>
+              <option value="primal">Primal</option>
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="whole 30">Whole 30</option>
+            </select>
+
+            <select onChange={(e) => handleOrderByHealthScore(e)}>
+              <option value="min">HealthScore min-max</option>
+              <option value="max">HealthScore min-max</option>
+            </select>
+
+            <select onChange={(e) => handleFilterByOrigin(e)}>
+              <option value="AllC&O">Own Recipe / Online Recipe</option>
+              <option value="Created">Mi Own Recipes</option>
+              <option value="Online">OnLine Recipes</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <Paginado
+            recipesPerPage={recipesPerPage}
+            allRecipes={allRecipes.length}
+            paginado={paginado}
+          />
+        </div>
+
+        <div>
+          <div>
+            {currentRecipes?.map((r) => {
+              return (
+                <div key={r.id}>
+                  <Link to={"/recipes/" + r.id}>
+                    <RecipeCard
+                      title={r.title}
+                      healthScore={r.healthScore}
+                      image={r.image}
+                      diets={r.diets.join(" ,")}
+                    />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
 };

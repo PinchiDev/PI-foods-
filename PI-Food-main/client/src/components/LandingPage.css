@@ -1,0 +1,61 @@
+
+@font-face {
+    font-family: "cooking-water";
+    src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
+}
+
+.landinBox{
+    display: flex;
+}
+
+.containerAll {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.footerContainer{
+    justify-self: end;
+}
+
+.browserRouter {
+    width: 100vw;
+    flex-grow: 1;
+}
+
+.wellcome {
+    text-align: center;
+    font-family: cooking-water;
+    font-size: 5rem;
+}
+
+.divButtonLanding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttonLanding {
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.footer {
+    width: 100vw;
+    font-size: 2rem;
+    background-color: #cccc;
+    background-image: url(../assets/henry-logo.png);
+    background-size: 100px 60px;
+    background-repeat: no-repeat;
+    
+}
+
+
+
+body {
+    background-image: url("../assets/08.jpg");
+    background-size: cover;
+
+}
+
