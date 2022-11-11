@@ -6,7 +6,7 @@ export default function RecipeCard ({ title, image, healthScore, diets, id }) {
     return (
         <div className="card">
             <Link to={"/recipes/" + id}><div>{title}</div></Link>
-            <img src={image} alt="Not found"></img>
+            <img src={image} alt="Not found" className="images"></img>
             <div>Diet Types: {diets}</div>
             <div>health Score: {healthScore}</div>
         </div>

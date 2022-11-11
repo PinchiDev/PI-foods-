@@ -78,7 +78,6 @@ try {
     where:
     { name: { [Op.in]: diets } }
   })
-  console.log(dietsDb)
     
   if(title || summary || healthScore || image || steps){
 
@@ -88,12 +87,10 @@ try {
       summary,
       healthScore,
       image,
-      diets
-      
     })
-    recipePost.addDiet(dietsDb);
-  
-    return res.status(200).send( recipePost);
+    await recipePost.addDiets(dietsDb);
+    
+    return res.status(200).send(recipePost);
   }
 } catch (error) {
   console.log(error.message);

@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: "There is no image"
+      defaultValue: "https://spoonacular.com/recipeImages/715497-312x231.jpg"
     },
     createdNew:{
     type: DataTypes.BOOLEAN,

@@ -8,6 +8,11 @@
     font-size: 5rem;
 }
 
+.henryRecipesContainer{
+    border-radius: 3rem;
+
+}
+
 .headerContainer {
     display: flex;
     flex-direction: row;
@@ -20,27 +25,32 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    font-family: cooking-water;
+    font-size: 2rem;
 }
 
 .filterOrderContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
 }
 
 .containerCardContainer{
     display: flex;
     justify-content: center;
     padding-bottom: 3rem;
+    border-radius: 3rem;
 }
 
 .cardContainer {
+    width: 20vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 80vw;
-    background-color: #cccc;
+    background-color: rgb(237, 227, 177);
+    border-radius: 3rem;
+    padding-top: 2%;
 }
 
 .rootDiv {
@@ -48,4 +58,8 @@
     height: 100%;
 }
 
+.formComponent {
+    padding: 5%;
+    background-color: wheat;
+}
 

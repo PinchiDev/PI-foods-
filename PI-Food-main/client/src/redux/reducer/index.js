@@ -22,7 +22,7 @@ function rootReducer (state=initialState, action) {
                         recipesToRender: filterByDiet
                     }
                 case "FILTER_BY_ORIGIN":
-                    const filterByOrigin = action.payload === "Online" ? state.allRecipes : state.allRecipes.filter(el => el.created)
+                    const filterByOrigin = action.payload === "Online" ? state.allRecipes : state.allRecipes.filter(el => el.createdNew)
                     
                     return {
                         ...state,

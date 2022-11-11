@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "cooking-water";
+    src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
+}
+
 .pagesContainer {
     width: 100vw;
     align-items: center;
@@ -12,5 +17,7 @@
     justify-content: center;
     width: 5vw;
     height: 5vh;
-    background-color: red;
+    background-color: rgb(237, 227, 177);
+    font-family: cooking-water;
+    font-size: 2rem;
 }

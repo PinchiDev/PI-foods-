@@ -39,7 +39,8 @@ export default function RecipeCreate(){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(postRecipe(input));
+        const dietsArray =  Array.from(input.diets);
+        dispatch(postRecipe({...input, diets:dietsArray}));
         alert("Recipe Created Succesfully");
         setInput({
         title:"",
@@ -62,7 +63,7 @@ export default function RecipeCreate(){
             <h1>Here you can create your own recipes!</h1>
             <h3>Fill the form and submit it to create a new recipe that will be saved to your data base</h3>
             
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form onSubmit={(e)=>handleSubmit(e)} className="formComponent">
 
                 <div>
                     <label>Title:</label>
@@ -82,7 +83,7 @@ export default function RecipeCreate(){
                 </div>
                 <div>
                     <label>Image:</label>
-                    <input type="text" value={input.image} name="image" onChange={handleChange}/>
+                    <input type="text" value={"https://spoonacular.com/recipeImages/715497-312x231.jpg"} name="image" onChange={handleChange}/>
                 </div>
 
                 <div>

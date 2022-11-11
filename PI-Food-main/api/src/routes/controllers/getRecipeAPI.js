@@ -16,13 +16,13 @@ const getRecipeApi = async function () {
             diets:e.diets,
             steps: e.analyzedInstructions[0]?.steps.map((s)=>{
                 return {
+                    step: s.step,
                     number: s.number,
-                    steps: s.steps
+                    
                 }
             }),
         }
     });
-
     return result;
 }
 

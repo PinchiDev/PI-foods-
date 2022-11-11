@@ -63,7 +63,7 @@ export default function Home (){
     return (
       <div className="rootDiv">
         <div className="headerContainer">
-          <div>
+          <div className="henryRecipesContainer">
             <h1 className="henryRecipes">Henry Recipes</h1>
           </div>
 
@@ -148,7 +148,7 @@ export default function Home (){
                       title={r.title}
                       healthScore={r.healthScore}
                       image={r.image}
-                      diets={r.diets.join(" ,")}
+                      diets={r.diets?.join(" ,")}
                     />
               );
             })}
