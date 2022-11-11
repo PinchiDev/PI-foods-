@@ -24,8 +24,8 @@ function App() {
         <div className="footerContainer">
 
           <div className="footer">
-            Study full stack web development for free untill you find a job in
-            <a href="www.soyhenry.com">soyhenry.com</a>
+            Study full stack web development for free untill you find a job in <a href="https://www.soyhenry.com" target="_bank">soyhenry.com</a>
+            
           </div>
 
         </div>

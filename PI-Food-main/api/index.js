@@ -23,35 +23,6 @@ const fs = require("fs");
 const {dietToDB} = require("./src/routes/diet");
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   dietToDB().then(() => server.listen(3001, () => {console.log('%s listening at 3001');}))
-  // fs.readFile("foodAPI.json", (error, data) => {
-  //   if(error) throw error;
-  //   let dietsSet = new Set();
-  //   let json = JSON.parse(data);
-  //   let arr = json.results?.map((e) => {
-
-  //     e.diets?.forEach( diet => dietsSet.add(diet))
-     
-
-  //     return Recipes.create({
-  //       id: e.id,
-  //       title: e.title,
-  //       summary: e.summary,
-  //       healthScore: e.healthScore,
-  //       image: e.image,
-  //       steps: e.analyzedInstructions[0]?.steps.map((a)=>{
-  //         return {
-  //           number: a.number,
-  //           step: a.step
-  //         }
-  //       }),
-  //     })
-  //   })
-
-  //   let counter = 0
-  //   let diets = [...dietsSet].map(diet => Diet.create({id: counter++, name:diet}))
-  //   Promise.all(arr)
-  //   Promise.all(diets)
-  // })
 });

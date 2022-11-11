@@ -75,21 +75,18 @@ router.post("/recipes", async (req,res) => {
   const { title, summary, healthScore, image, steps, diets} = req.body;
 try {
   let dietsDb = await Diet.findAll({
-    where:
-    { name: { [Op.in]: diets } }
-  })
-    
-  if(title || summary || healthScore || image || steps){
+    where: { name: { [Op.in]: diets } },
+  });
 
+  if (title || summary || healthScore || image || steps) {
     const recipePost = await Recipes.create({
-      
       title,
       summary,
       healthScore,
       image,
-    })
+    });
     await recipePost.addDiets(dietsDb);
-    
+
     return res.status(200).send(recipePost);
   }
 } catch (error) {

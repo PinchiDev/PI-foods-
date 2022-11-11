@@ -26,6 +26,7 @@ export default function RecipeDetail (props){
                 detailRecipe?
                 <div className="recipeDetailContainer">
                     <h1>Recipe Details</h1>
+                    <Link to='/home'><button>Go back to Home</button> </Link>
                     <h1>Recipe Title: {detailRecipe.title}</h1>
                     <img src={detailRecipe.image} alt="not found"/>
                     <h2>Dish Types: {detailRecipe.dishTypes?.join(", ")}</h2>
@@ -41,7 +42,7 @@ export default function RecipeDetail (props){
                 </div>:
                     <p>Loading...</p>
             }
-            <Link to='/home'><button>Go back to Home</button> </Link>
+            
         </div>
     )
 }

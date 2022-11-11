@@ -10,10 +10,10 @@ function rootReducer (state=initialState, action) {
                 case "GET_RECIPES":
 
                     return {
-                        ...state,
-                        recipesToRender: action.payload,
-                        allRecipes: action.payload
-                    }
+                      ...state,
+                      recipesToRender: action.payload,
+                      allRecipes: action.payload,
+                    };
                 case "FILTER_BY_DIET":
                     const filterByDiet = action.payload === "AllDT" ? state.allRecipes : state.allRecipes.filter(el => el.diets.includes(action.payload))
                     //aca deberia buscar bien en como lo traigo al objeto por que la propiedad diets es un arreglo de tipos de dieta
