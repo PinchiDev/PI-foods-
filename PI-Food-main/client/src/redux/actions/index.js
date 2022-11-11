@@ -24,6 +24,11 @@ export function filterByOrigin (payload){
         payload: payload
     }
 };
+export function cleanDetail (){
+    return {
+        type: "CLEAN_DETAIL",
+    }
+};
 
 export function alphabeticOrder (payload){
     return {

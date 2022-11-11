@@ -3,7 +3,11 @@ import {Link} from "react-router-dom";
 import "./LandingPage.css"
 
 
+
+
 function LandingPage () {
+
+
     return (
         <div className="landingBox">
             <h1 className="wellcome"> Welcome to mi Individual Proyect - Foods</h1>

@@ -28,6 +28,12 @@ function rootReducer (state=initialState, action) {
                         ...state,
                         recipesToRender: filterByOrigin
                     }
+                case "CLEAN_DETAIL":
+
+                        return {
+                            ...state,
+                            detail: [],
+                        }
                 case "ORDER_BY_HEALTHSCORE":
                     let scoresSorted = action.payload === "min" ?
                     state.recipesToRender.sort(function (a,b){ return a.healthScore - b.healthScore})

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../redux/actions";
+import { cleanDetail, getDetail } from "../redux/actions";
 import { useEffect } from "react";
 import "./RecipeDetail.css";
 
@@ -14,7 +14,10 @@ export default function RecipeDetail (props){
 
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id));
+        return dispatch(cleanDetail());
     },[dispatch])
+
+
 
     const detailRecipe = useSelector((state)=> state.detail[0]);
     //comprobar con un if si tiene algo detailrecipe
