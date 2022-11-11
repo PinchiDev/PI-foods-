@@ -6,6 +6,9 @@
 
 
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 20%;
     width: 20%;
     background-color: aqua;

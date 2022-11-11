@@ -1,0 +1,16 @@
+.pagesContainer {
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.pageNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    height: 5vh;
+    background-color: red;
+}
