@@ -645,3 +645,25 @@ const results = {
     //     "equipment": []
     //     }
     //     ]
+
+
+
+
+    // {   "number": 1,
+    //     "step": "Heat the olive oil in a large pot over medium heat.",
+    //     "ingredients": 
+    //     [{
+    //     "id": 4053,
+    //     "name": "olive oil",
+    //     "localizedName": "olive oil",
+    //     "image": "olive-oil.jpg"
+    //     }],
+        
+    //     "equipment":
+    //      [{
+    //     "id": 404752,
+    //     "name": "pot",
+    //     "localizedName": "pot",
+    //     "image": "stock-pot.jpg"
+    //     }]
+    // }

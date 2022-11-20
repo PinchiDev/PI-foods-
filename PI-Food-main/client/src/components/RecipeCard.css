@@ -4,6 +4,12 @@
     src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
 }
 
+@font-face {
+    font-family: "cafe-matcha";
+    src: url(../fonts/CallingFont.ttf);
+}
+
+
 
 .card {
     display: flex;
@@ -13,9 +19,11 @@
     width: 20%;
     background-color: rgb(241, 213, 77);
     padding: 5%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, serif;
     font-size: 1.2rem;
     border-radius: 3rem;
+    box-shadow: 1rem 1rem 1rem rgb(122, 111, 97);
+
 }
 
 .images {
@@ -23,3 +31,11 @@
     max-width: 100%;
 }
 
+.titleDivCard {
+    font-family: cafe-matcha;
+    font-size: 2rem;
+}
+
+.errorMsg {
+    color: red;
+}

@@ -9,6 +9,8 @@
     justify-content: center;
     display: flex;
     flex-direction: row;
+    
+    
 }
 
 .pageNumber {
@@ -20,4 +22,5 @@
     background-color: rgb(237, 227, 177);
     font-family: cooking-water;
     font-size: 2rem;
+    box-shadow: 1rem 1rem 1rem rgb(122, 111, 97);
 }
