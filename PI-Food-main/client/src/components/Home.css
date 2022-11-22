@@ -65,3 +65,7 @@
     background-color: wheat;
 }
 
+button {
+    border-radius: 15px;
+}
+

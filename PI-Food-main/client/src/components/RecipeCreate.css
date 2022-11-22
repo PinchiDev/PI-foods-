@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "calling";
+    src: url(../fonts/CallingFont.ttf);
+}
+
+@font-face {
+    font-family: "cooking-water";
+    src: url(../fonts/cooking_water_font/Cooking\ Water.otf);
+}
+
+.divCheckboxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.rootDivForm {
+    font-family: cursive;
+}
+.titleCreate {
+    font-family: cooking-water;
+    font-size: 5rem;
+}

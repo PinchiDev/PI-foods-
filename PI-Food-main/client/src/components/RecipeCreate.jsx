@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postRecipe, getDiets } from "../redux/actions";
 import validation from "./validation"
+import "./RecipeCreate.css"
 
 export default function RecipeCreate(){
     const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export default function RecipeCreate(){
     
     const [error, setError] = useState({});
 
+    const [stepsDone, setStepsDone] = useState([]);
+
 
     function handleChange(e){
         setInput((prevInput)=> {
@@ -28,7 +31,6 @@ export default function RecipeCreate(){
         }
         const errors = validation(newInput);
         setError(errors);
-        console.log(error)
         return newInput;
     })
     }
@@ -55,16 +57,23 @@ export default function RecipeCreate(){
         setInput(initialState);
     }
 
+    function handleSteps(e){
+        e.preventDefault();
+        const stepsSubmited = e.target.value;
+        setStepsDone(...stepsDone, stepsDone.push(stepsSubmited));
+        console.log(stepsDone)
+    }
+
 
     useEffect(()=>{
         dispatch(getDiets())
-    },[])
+    },[dispatch])
 
     return (
-        <div>
+        <div className="rootDivForm">
             <Link to='/home'><button>Go back to Home</button></Link>
-            <h1>Here you can create your own recipes!</h1>
-            <h3>Fill the form and click submit to create a new recipe that will be saved in your data base</h3>
+            <h1 className="titleCreate">Here you can create your own recipes!</h1>
+            <h3>Fill the form and click the button to create a new recipe that will be saved in your data base!</h3>
             
             <form onSubmit={(e)=>handleSubmit(e)} className="formComponent">
 
@@ -89,17 +98,21 @@ export default function RecipeCreate(){
                 <div>
                     <label>Steps:</label>
                     <input type="text" value={input.steps} name="steps" onChange={handleChange}/>
+                    <button type="submit" onClick={handleSteps}>Submit step</button>
+                    <div className="errorMsg">{error.steps}</div>
+                    <div>{stepsDone} aca tengo que renderizar los steps que se submitean</div>
                 </div>
                 <hr></hr>
                 <div>
                     <label>Image:</label>
                     <input type="text" value={"https://spoonacular.com/recipeImages/715497-312x231.jpg"} name="image" onChange={handleChange}/>
+                    <img src={input.image} alt="missing"/>
                 </div>
                 <hr></hr>
 
                 <div>  
                     <label>Diet Types:</label>
-                        <div>
+                        <div className="divCheckboxes">
                             {
                                 diets.map((d)=>(
                                     <label value={d.name} name={d.name} key={d.id} onChange={handleCheck}>

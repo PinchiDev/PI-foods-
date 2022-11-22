@@ -8,7 +8,7 @@ export default function validation (input){
     let error = {};
 
     if (!/^[a-zA-Z0-9. ]+$/.test(input.title)) {
-        error.title = "The title field doesn't accept simbols or special caracters "
+        error.title = "The title field doesn't accept symbols or special characters"
     }
     else if (!/^[a-zA-Z0-9. ]+$/.test(input.summary)){
         error.summary = "The summary field doesn't accept simbols or special caracters"
@@ -16,6 +16,9 @@ export default function validation (input){
     else if (!input.healthScore || input.healthScore < 0 || input.healthScore > 100){
         error.healthScore = "Health score must be between 1 & 100"
     }
+    // else if (!/^[a-zA-Z0-9. ]+$/.test(input.steps)){
+    //     error.steps = "The steps field doesn't accept simbols or special caracters"
+    // }
     else if(!input.diets){
         error.diets = "You must check atleast one diet type from the list"
     }
