@@ -20,9 +20,7 @@ export default function RecipeDetail (props){
 
 
     const detailRecipe = useSelector((state)=> state.detail[0]);
-    //comprobar con un if si tiene algo detailrecipe
-    console.log("mantic")
-    console.log(detailRecipe);
+    
     return (
         <div>
             {

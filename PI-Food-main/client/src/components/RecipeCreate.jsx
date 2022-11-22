@@ -20,7 +20,7 @@ export default function RecipeCreate(){
     
     const [error, setError] = useState({});
 
-    const [stepsDone, setStepsDone] = useState([]);
+    // const [stepsDone, setStepsDone] = useState([]);
 
 
     function handleChange(e){
@@ -29,24 +29,31 @@ export default function RecipeCreate(){
             ...prevInput,
             [e.target.name]: e.target.value
         }
-        const errors = validation(newInput);
-        setError(errors);
+        handleCheckErrors(newInput);
         return newInput;
     })
     }
 
     function handleCheck(e){
-        if (e.target.checked){
-            setInput({
-                ...input,
-                diets: input.diets.add(e.target.value)
-            })
-        } if (!e.target.checked){
-            input.diets.delete(e.target.value)
-            setInput({
-                ...input,
-            })
+        if (e.target.checked) {
+          input.diets.add(e.target.value);
+          setInput({
+            ...input,
+          });
         }
+        if (!e.target.checked) {
+          input.diets.delete(e.target.value);
+          setInput({
+            ...input,
+          });
+        }
+        handleCheckErrors(input);
+    }
+
+    function handleCheckErrors(input){
+        const errors = validation(input);
+        setError(errors);
+        return input;
     }
 
     function handleSubmit(e){
@@ -57,12 +64,12 @@ export default function RecipeCreate(){
         setInput(initialState);
     }
 
-    function handleSteps(e){
-        e.preventDefault();
-        const stepsSubmited = e.target.value;
-        setStepsDone(...stepsDone, stepsDone.push(stepsSubmited));
-        console.log(stepsDone)
-    }
+    // function handleSteps(e){
+    //     e.preventDefault();
+    //     const stepsSubmited = e.target.value;
+    //     setStepsDone(...stepsDone, stepsDone.push(stepsSubmited));
+    //     console.log(stepsDone)
+    // }
 
 
     useEffect(()=>{
@@ -98,9 +105,9 @@ export default function RecipeCreate(){
                 <div>
                     <label>Steps:</label>
                     <input type="text" value={input.steps} name="steps" onChange={handleChange}/>
-                    <button type="submit" onClick={handleSteps}>Submit step</button>
+                    {/* <button type="submit" onClick={handleSteps}>Submit step</button> */}
                     <div className="errorMsg">{error.steps}</div>
-                    <div>{stepsDone} aca tengo que renderizar los steps que se submitean</div>
+                    {/* <div>{stepsDone} aca tengo que renderizar los steps que se submitean</div> */}
                 </div>
                 <hr></hr>
                 <div>
@@ -126,9 +133,10 @@ export default function RecipeCreate(){
 
                     <div>
                         {
-                        error.length?<button type="submit" disabled>Create Recipe</button>
+                        error.validated === true?<button type="submit">Create Recipe</button>
                         :
-                        <button type="submit">Create Recipe</button>
+                        <button type="submit" disabled>Create Recipe</button>
+                        
                         }
                     </div>
                 </div>
