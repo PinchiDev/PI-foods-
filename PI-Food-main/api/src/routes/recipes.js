@@ -74,16 +74,18 @@ router.get("/recipes/:id", async (req,res) => {
 router.post("/recipes", async (req,res) => {
   const { title, summary, healthScore, image, steps, diets} = req.body;
 try {
+  
   let dietsDb = await Diet.findAll({
     where: { name: { [Op.in]: diets } },
   });
 
-  if (title || summary || healthScore || image || steps) {
+  if (title || summary || healthScore || image || steps || diets) {
     const recipePost = await Recipes.create({
       title,
       summary,
       healthScore,
       image,
+      diets
     });
     await recipePost.addDiets(dietsDb);
 

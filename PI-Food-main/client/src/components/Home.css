@@ -67,5 +67,15 @@
 
 button {
     border-radius: 15px;
+    font-size: 1rem;
+    background-color: wheat;
+    width: 7rem;
+    height: 3rem;
+}
+
+.searchBarInput{
+    height: 3rem;
+    border-radius: 15px;
+    font-size: 1rem;
 }
 

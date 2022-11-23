@@ -27,6 +27,7 @@ export default function SearchBar (){
     return (
         <div>
             <input 
+            className="searchBarInput"
             value={name}
             id="searchBox"
             type="text"

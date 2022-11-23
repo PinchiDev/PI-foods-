@@ -34,6 +34,6 @@ export default function validation (input){
     else if (Object.keys(error).length === 0){
         error.validated = true;
     }
-    console.log(error)
+    
     return error;
 }

@@ -66,16 +66,6 @@ export default function Home (){
           <div className="henryRecipesContainer">
             <h1 className="henryRecipes">Henry Recipes</h1>
           </div>
-
-          <div>
-            <button
-              onClick={(e) => {
-                handleClick(e);
-              }}
-            >
-              Refresh Recipes
-            </button>
-          </div>
           <div>
             <Link to="/recipes">
               <button>Create Recipe</button>
@@ -83,6 +73,15 @@ export default function Home (){
           </div>
           <div>
             <SearchBar />
+          </div>
+          <div>
+            <button
+              onClick={(e) => {
+              handleClick(e);
+              }}
+            >
+              Refresh Recipes
+            </button>
           </div>
         </div>
 

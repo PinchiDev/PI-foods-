@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: "https://spoonacular.com/recipeImages/715497-312x231.jpg"
     },
+    diets: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      defaultValue: []
+    },
     createdNew:{
     type: DataTypes.BOOLEAN,
     allowNull: false,

@@ -15,7 +15,8 @@
 }
 
 .footerContainer{
-    justify-self: end;
+    justify-content: center;
+    align-items: center;
 }
 
 .browserRouter {
@@ -39,10 +40,10 @@
 .buttonLanding {
     border-radius: 15px;
     font-size: 1rem;
+    background-color: wheat;
+    width: 10rem;
+    height: 4rem;
 }
-
-
-
 
 
 body {
