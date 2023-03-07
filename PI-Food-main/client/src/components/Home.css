@@ -23,7 +23,6 @@
 .filterContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-around;
     font-family: cooking-water;
     font-size: 2rem;
@@ -33,6 +32,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 20px;
+
+}
+
+.filtersBoxes {
+    padding: 15px;
 }
 
 .containerCardContainer{
@@ -78,7 +83,7 @@ button:hover {
 }
 
 .searchBarInput{
-    height: 3rem;
+    height: 2.6rem;
     border-radius: 15px;
     font-size: 1rem;
 }

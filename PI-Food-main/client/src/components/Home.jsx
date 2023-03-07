@@ -92,11 +92,14 @@ export default function Home (){
               <div>
                 <h3>Filter By: </h3>
               </div>
-              <select onChange={(e) => handleFilterByOrigin(e)}>
+              <div className="filtersBoxes">
+              <select onChange={(e) => handleFilterByOrigin(e)} >
                 <option value="AllC&O">Own Recipe / Online Recipe</option>
                 <option value="Created">Mi Own Recipes</option>
                 <option value="Online">OnLine Recipes</option>
               </select>
+              </div>
+              <div className="filtersBoxes">
               <select onChange={(e) => handleFilterBD(e)}>
                 <option value="AllDT">Diet Types</option>
                 <option value="dairy free">Dairy Free</option>
@@ -114,16 +117,21 @@ export default function Home (){
                 <option value="vegetarian">Vegetarian</option>
                 <option value="whole 30">Whole 30</option>
               </select>
+              </div>
               <div className="filterOrderContainer">
                   <h3>Order By: </h3>
-                  <select onChange={(e) => handleOrder(e)}>
+                  <div className="filtersBoxes">
+                  <select onChange={(e) => handleOrder(e)} >
                     <option value="asc">Alphabetic A - Z</option>
                     <option value="desc">Alphabetic Z - A</option>
                   </select>
+                  </div>
+                  <div className="filtersBoxes">
                   <select onChange={(e) => handleOrderByHealthScore(e)}>
                     <option value="min">HealthScore min-max</option>
                     <option value="max">HealthScore min-max</option>
                   </select>
+                  </div>
               </div>
             </div>
           </div>
