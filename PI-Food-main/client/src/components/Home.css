@@ -73,6 +73,10 @@ button {
     height: 3rem;
 }
 
+button:hover {
+    background-color:  rgb(242, 192, 99);
+}
+
 .searchBarInput{
     height: 3rem;
     border-radius: 15px;
