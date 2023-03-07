@@ -21,18 +21,18 @@
     padding: 2%;
     font-family: Arial, Helvetica, serif;
     font-size: 1.2rem;
-    border-radius: 3rem;
+    border-radius: 2rem;
     box-shadow: 1rem 1rem 1rem rgb(122, 111, 97);
 
 }
 
 .images {
-    border-radius: 2rem;
+    border-radius: 1rem;
     max-width: 100%;
 }
 
 .titleDivCard {
-    font-family: cafe-matcha;
+    font-family: cooking-water;
     font-size: 2rem;
 }
 
