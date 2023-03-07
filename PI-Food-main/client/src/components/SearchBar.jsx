@@ -25,7 +25,8 @@ export default function SearchBar (){
     
 
     return (
-        <div>
+        <div className="searchBar">
+            <div className="searchBarButton">
             <input 
             className="searchBarInput"
             value={name}
@@ -34,7 +35,10 @@ export default function SearchBar (){
             placeholder={prevState}
             onChange={(e)=> handleInput(e)}
             />
+            </div>
+            <div>
             <button type="submit" onClick={(e)=>handleSubmit(e)}>Search</button>
+            </div>
         </div>
     )
 

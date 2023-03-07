@@ -90,17 +90,17 @@ export default function Home (){
 
             <div className="filterOrderContainer">
               <div>
-                <h3>Filter By: </h3>
+                <h3>Filter by: </h3>
               </div>
               <div className="filtersBoxes">
-              <select onChange={(e) => handleFilterByOrigin(e)} >
+              <select onChange={(e) => handleFilterByOrigin(e)} className="selects">
                 <option value="AllC&O">Own Recipe / Online Recipe</option>
                 <option value="Created">Mi Own Recipes</option>
                 <option value="Online">OnLine Recipes</option>
               </select>
               </div>
               <div className="filtersBoxes">
-              <select onChange={(e) => handleFilterBD(e)}>
+              <select onChange={(e) => handleFilterBD(e)} className="selects">
                 <option value="AllDT">Diet Types</option>
                 <option value="dairy free">Dairy Free</option>
                 <option value="frutarian">Frutarian</option>
@@ -119,15 +119,15 @@ export default function Home (){
               </select>
               </div>
               <div className="filterOrderContainer">
-                  <h3>Order By: </h3>
+                  <h3>Order by: </h3>
                   <div className="filtersBoxes">
-                  <select onChange={(e) => handleOrder(e)} >
+                  <select onChange={(e) => handleOrder(e)} className="selects">
                     <option value="asc">Alphabetic A - Z</option>
                     <option value="desc">Alphabetic Z - A</option>
                   </select>
                   </div>
                   <div className="filtersBoxes">
-                  <select onChange={(e) => handleOrderByHealthScore(e)}>
+                  <select onChange={(e) => handleOrderByHealthScore(e)} className="selects">
                     <option value="min">HealthScore min-max</option>
                     <option value="max">HealthScore min-max</option>
                   </select>
