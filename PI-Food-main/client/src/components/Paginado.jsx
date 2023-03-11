@@ -14,9 +14,9 @@ export default function Paginado ({ recipesPerPage,allRecipes,paginado}){
             <div className="pagesContainer">
                 {
                     pageNumbers && pageNumbers.map(number =>(
-                        <div key={number} className="pageNumber">
+                        <button key={number} className="pageNumber">
                             <a onClick={()=> paginado(number)}>{number}</a>
-                        </div>
+                        </button>
                     ))}
             </div>
             </div>

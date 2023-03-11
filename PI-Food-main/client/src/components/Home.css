@@ -49,6 +49,7 @@
     justify-content: center;
     padding-bottom: 3rem;
     border-radius: 3rem;
+   
     
 }
 
@@ -60,6 +61,7 @@
     width: 80vw;
     background-color: rgb(237, 227, 177);
     border-radius: 3rem;
+   
     padding-top: 2%;
     box-shadow: 1rem 1rem 1rem gray;
 }
@@ -100,4 +102,6 @@ button:hover {
     display: flex;
     align-items: center;
 }
+
+
 

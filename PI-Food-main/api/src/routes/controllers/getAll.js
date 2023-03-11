@@ -5,6 +5,7 @@ const getAll = async () => {
 const apiInfo = await getRecipeApi();
 const dbInfo = await getRecipesDB();
 const totalInfo = apiInfo.concat(dbInfo);
+
 return totalInfo;
 };
 

@@ -71,9 +71,7 @@ export default function Home (){
               <button>Create Recipe</button>
             </Link>
           </div>
-          <div>
-            <SearchBar />
-          </div>
+          
           <div>
             <button
               onClick={(e) => {
@@ -82,6 +80,9 @@ export default function Home (){
             >
               Refresh Recipes
             </button>
+          </div>
+          <div>
+            <SearchBar />
           </div>
         </div>
 
@@ -137,7 +138,7 @@ export default function Home (){
           </div>
         </div>
 
-        <div>
+        <div >
           <Paginado
             recipesPerPage={recipesPerPage}
             allRecipes={allRecipes.length}

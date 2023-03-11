@@ -6,11 +6,11 @@
 .pagesContainer {
     width: 100vw;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    
     display: flex;
     flex-direction: row;
-    
-    
+    padding: 5px;
 }
 
 .pageNumber {

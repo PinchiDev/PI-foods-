@@ -26,6 +26,12 @@
 
 }
 
+.card:hover {
+    background-color: rgb(239, 206, 36) ;
+    box-shadow: 1.2rem 1.2rem 1.2rem rgb(122, 107, 87);
+     
+}
+
 .images {
     border-radius: 1rem;
     max-width: 100%;
